@@ -1,0 +1,44 @@
+{
+  "name": "api-filmes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node .",
+    "lint-fix": "eslint --fix {app,test,config,migrations,seeders}/**/*.js",
+    "test": "npx mocha -w test/**/*.js --exit",
+    "coverage": "nyc mocha --config test/.mocharc.json --reporter mocha-multi-reporters --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hudsonleao/api-filmes.git"
+  },
+  "author": "Hudson Leão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hudsonleao/api-filmes/issues"
+  },
+  "homepage": "https://github.com/hudsonleao/api-filmes#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.15.0",
+    "mocha": "^8.2.1",
+    "mocha-multi-reporters": "^1.5.1",
+    "nyc": "^15.1.0",
+    "supertest": "^6.0.1"
+  }
+}
