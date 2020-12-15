@@ -65,8 +65,8 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 ### Obter token
 
 > ROUTE:/api/v1/auth/token \n
-> METHOD: GET
-> body:{
+> METHOD: GET \n
+> body:{ 
 >  usuario: "string"
 >  senha: "string"
 > }
