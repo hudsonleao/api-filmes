@@ -114,3 +114,17 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 **Obs: usuário e senha são obrigatórios
 
+#### Editar usuário:
+
+>  ROUTE: /admin/alterar/:usuario <br />
+>  METHOD: PUT <br />
+>  PARAMS: :usuario = "texto" <br />
+>  BODY: { <br />
+>   usuario: "texto", <br />
+>   senha: "texto", <br />
+>   ativo: 1
+>  }
+
+**Obs: ativo deve ser igual a 1, caso queira ativar o usuário.
+
+
