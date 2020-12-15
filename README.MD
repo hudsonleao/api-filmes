@@ -89,10 +89,10 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 >  ROUTE: /api/v1/filmes <br />
 >  METHOD: POST <br />
->  BODY: {
->   nome: "texto",
->   diretores: [array],
->   generos: [array],
->   atores: [array],
->   resumo: "texto"
+>  BODY: { <br />
+>   nome: "texto", <br />
+>   diretores: [array], <br />
+>   generos: [array], <br />
+>   atores: [array], <br />
+>   resumo: "texto" <br />
 >  }
