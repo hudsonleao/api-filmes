@@ -23,13 +23,11 @@ Para criar as tabelas execute:
 
 `./node_modules/sequelize-cli/lib/sequelize db:migrate`
 
-E para popular as tabelas com alguns dados execute:
+E para popular as tabelas com alguns dados:
 
 `./node_modules/sequelize-cli/lib/sequelize db:seed:all`
 
-###
-
-Caso queira instalar o sequelize-cli globalmente execute:
+Caso queira instalar o sequelize-cli globalmente execute o comando:
 
 `npm run sequelize-cli -g`
 
@@ -37,3 +35,24 @@ Com o sequelize-cli instalado globalmente basta executar os mesmos comando execu
 
 `sequelize db:migrate`
 `sequelize db:seed:all`
+
+**Obs: Caso haja algum problema para executar as migrations, há na pasta db um sql para criação as tabelas e os dados.
+
+## Executar os testes
+
+Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca supertest para iniciar o servidor e realizar os testes nos endpoints. Para identificar a cobertura de testes houve a utilização do nyc.
+
+### Para executar os testes automatizados rode o comando:
+
+`npm run test`
+
+### Para verificar a cobertura dos testes:
+
+`npm run coverage`
+
+## ESLint
+
+### Para examinar o código com o ESLint e realizar algumas correções, execute o comando:
+
+`npm run lint-fix`
+
