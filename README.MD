@@ -56,3 +56,18 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 `npm run lint-fix`
 
+## Testar as rotas da API no Postman
+
+### Há uma collection no diretório postman com alguns testes.
+
+## Endpoints:
+
+### Obter token
+
+`ROUTE:/api/v1/auth/token \n
+METHOD: GET
+body:{
+  usuario: "string"
+  senha: "string"
+}`
+
