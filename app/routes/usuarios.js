@@ -1,14 +1,12 @@
 module.exports = function (app) {
     const controller = app.controllers.usuarios;
-    app.route('/admin/cadastrar')
+    app.route('/admin/usuarios')
         .post(controller.cadastrarAdmin);
-    app.route('/admin/alterar/:usuario')
-        .put(controller.alterarUsuario);
-    app.route('/admin/remover/:usuario')
+    app.route('/admin/usuarios/:usuario')
+        .put(controller.alterarUsuario)
         .delete(controller.removerUsuario);
         
-    app.route('/usuario/alterar/:usuario')
-        .put(controller.alterarUsuario);
-    app.route('/usuario/remover/:usuario')
+    app.route('/usuarios/:usuario')
+        .put(controller.alterarUsuario)
         .delete(controller.removerUsuario);
 };

@@ -14,18 +14,10 @@ describe('TESTANDO ROTAS VOTOS...', () => {
             .expect(200);
         token = response.body.token;
     });
-    afterEach(async () => {
-        let query = `DELETE
-        FROM votos 
-        WHERE filmes_id=1
-        AND usuarios_id=1
-        AND nota=2`;
-        await app.sequelize.query(query, { type: Sequelize.QueryTypes.DELETE });
-    });
 
     describe('TESTANDO RESPOSTAS DE SUCESSO...', () => {
         describe('POST :: /api/v1/votar', () => {
-            it('Teste na rota de votação, voto cadastrado', async () => {
+            it('Teste na rota de votação, cadastrar voto', async () => {
                 const response = await request(app)
                     .post('/api/v1/votar')
                     .set('authorization', `Bearer ${token}`)
@@ -43,12 +35,13 @@ describe('TESTANDO ROTAS VOTOS...', () => {
                 expect(response.body.data).to.haveOwnProperty('nota');
             });
         });
-        describe('POST :: /api/v1/votar', () => {
+        describe('POST :: /api/v1/votar', async () => {
             it('Teste na rota de votação, voto atualizado', async () => {
-                const query = `INSERT INTO votos (filmes_id, usuarios_id, nota)
-                    VALUES 
-                    ('1', '1', '0')`;
-                await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
+
+                // const query = `INSERT INTO votos (filmes_id, usuarios_id, nota)
+                // VALUES 
+                // ('1', '1', '0')`;
+                // await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
                     .post('/api/v1/votar')
@@ -65,6 +58,14 @@ describe('TESTANDO ROTAS VOTOS...', () => {
                 expect(response.body.data).to.haveOwnProperty('usuario');
                 expect(response.body.data.usuario).to.equal('admin');
                 expect(response.body.data).to.haveOwnProperty('nota');
+
+                let query = `DELETE
+                    FROM votos 
+                    WHERE filmes_id=1
+                    AND usuarios_id=1
+                    AND nota=2 
+                    OR nota=0`;
+                await app.sequelize.query(query, { type: Sequelize.QueryTypes.DELETE });
             });
         });
 

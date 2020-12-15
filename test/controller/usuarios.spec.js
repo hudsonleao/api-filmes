@@ -29,11 +29,11 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
     });
 
     describe('TESTANDO RESPOSTAS DE SUCESSO...', () => {
-        describe('POST :: /api/v1/admin/cadastrar', () => {
+        describe('POST :: /api/v1/admin/usuarios', () => {
             it('Teste na rota para cadastrar usuário admin, token Admin', async () => {
 
                 const response = await request(app)
-                    .post('/api/v1/admin/cadastrar')
+                    .post('/api/v1/admin/usuarios')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -47,7 +47,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 expect(response.body.data.usuario).to.equal('usuariotesteadmin');
             });
         });
-        describe('PUT :: /api/v1/admin/alterar/:usuario', async () => {
+        describe('PUT :: /api/v1/admin/usuarios/:usuario', async () => {
 
             it('Teste na rota para alterar usuário cadastrado', async () => {
                 const query = `INSERT INTO usuarios (usuario, senha)
@@ -55,7 +55,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 ('usuariotesteadmin', '25d55ad283aa400af464c76d713c07ad')`;
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteadmin')
+                    .put('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -78,7 +78,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 let tokenNormal = responseToken.body.token;
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/normal')
+                    .put('/api/v1/admin/usuarios/normal')
                     .set('authorization', `Bearer ${tokenNormal}`)
                     .send({
                         usuario: "normal",
@@ -97,7 +97,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteput')
+                    .put('/api/v1/admin/usuarios/usuariotesteput')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -116,7 +116,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteput')
+                    .put('/api/v1/admin/usuarios/usuariotesteput')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         senha: "novasenha"
@@ -134,7 +134,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteput')
+                    .put('/api/v1/admin/usuarios/usuariotesteput')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin"
@@ -152,7 +152,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteput')
+                    .put('/api/v1/admin/usuarios/usuariotesteput')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -165,7 +165,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 expect(response.body.message).to.equal('Usuário alterado com sucesso!');
             });
         });
-        describe('DELETE :: /api/v1/admin/remover/:usuario', async () => {
+        describe('DELETE :: /api/v1/admin/usuarios/:usuario', async () => {
             it('Teste na rota para excluir usuário', async () => {
 
                 const query = `INSERT INTO usuarios (usuario, senha)
@@ -174,7 +174,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .delete('/api/v1/admin/remover/usuariotesteadmin')
+                    .delete('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .expect(200);
 
@@ -194,7 +194,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
             let tokenNormal = responseToken.body.token;
 
             const response = await request(app)
-                .delete('/api/v1/admin/remover/usuariotestenormal')
+                .delete('/api/v1/admin/usuarios/usuariotestenormal')
                 .set('authorization', `Bearer ${tokenNormal}`)
                 .expect(200);
 
@@ -204,7 +204,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
     });
 
     describe('TESTANDO RESPOSTAS DE ERRO...', () => {
-        describe('POST :: /api/v1/admin/cadastrar', () => {
+        describe('POST :: /api/v1/admin/usuarios', () => {
             it('Teste na rota para cadastrar usuário admin, token Normal', async () => {
                 const responseToken = await request(app)
                     .get('/api/v1/auth/token')
@@ -213,7 +213,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 let tokenNormal = responseToken.body.token;
 
                 const response = await request(app)
-                    .post('/api/v1/admin/cadastrar')
+                    .post('/api/v1/admin/usuarios')
                     .set('authorization', `Bearer ${tokenNormal}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -232,7 +232,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .post('/api/v1/admin/cadastrar')
+                    .post('/api/v1/admin/usuarios')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -246,7 +246,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
             it('Teste na rota para cadastrar usuário admin, usuário vazio', async () => {
 
                 const response = await request(app)
-                    .post('/api/v1/admin/cadastrar')
+                    .post('/api/v1/admin/usuarios')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         senha: "12345678"
@@ -259,7 +259,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
             it('Teste na rota para cadastrar usuário admin, senha vazia', async () => {
 
                 const response = await request(app)
-                    .post('/api/v1/admin/cadastrar')
+                    .post('/api/v1/admin/usuarios')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin"
@@ -270,11 +270,11 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 expect(response.body.message).to.equal('A senha não pode ser vazia.');
             });
         });
-        describe('PUT :: /api/v1/admin/alterar/:usuario', async () => {
+        describe('PUT :: /api/v1/admin/usuarios/:usuario', async () => {
             it('Teste na rota para alterar usuário que não está cadastrado', async () => {
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuarioteste')
+                    .put('/api/v1/admin/usuarios/usuarioteste')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "novousuario",
@@ -293,7 +293,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteadmin')
+                    .put('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "admin",
@@ -316,7 +316,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 let tokenNormal = responseToken.body.token;
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuarioteste')
+                    .put('/api/v1/admin/usuarios/usuarioteste')
                     .set('authorization', `Bearer ${tokenNormal}`)
                     .send({
                         usuario: "novousuario",
@@ -334,7 +334,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteadmin')
+                    .put('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -353,7 +353,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
 
                 const response = await request(app)
-                    .put('/api/v1/admin/alterar/usuariotesteadmin')
+                    .put('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .send({
                         usuario: "usuariotesteadmin",
@@ -366,7 +366,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 expect(response.body.message).to.equal('Somente o valor 1 é permitido no campo ativo');
             });
         });
-        describe('DELETE :: /api/v1/admin/remover/:usuario', async () => {
+        describe('DELETE :: /api/v1/admin/usuarios/:usuario', async () => {
             it('Teste na rota para excluir usuário, usuário sem permissão para excluir outro registro', async () => {
 
                 const query = `INSERT INTO usuarios (usuario, senha)
@@ -381,7 +381,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
                 let tokenNormal = responseToken.body.token;
 
                 const response = await request(app)
-                    .delete('/api/v1/admin/remover/usuariotesteadmin')
+                    .delete('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${tokenNormal}`)
                     .expect(401);
 
@@ -391,7 +391,7 @@ describe('TESTANDO ROTAS USUÁRIOS...', () => {
             it('Teste na rota para excluir usuário, usuário a ser removido não existe', async () => {
 
                 const response = await request(app)
-                    .delete('/api/v1/admin/remover/usuariotesteadmin')
+                    .delete('/api/v1/admin/usuarios/usuariotesteadmin')
                     .set('authorization', `Bearer ${token}`)
                     .expect(400);
 

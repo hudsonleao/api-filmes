@@ -45,7 +45,7 @@ module.exports = function (app) {
                 });
             }
         });
-        app.post('/usuario/cadastrar', async (req, res) => {
+        app.post('/usuarios', async (req, res) => {
             try {
                 const { usuario, senha } = req.body;
 

@@ -28,10 +28,10 @@ describe('TESTANDO ROTAS ROTAS SEM TOKEN...', () => {
                 expect(response.body).to.haveOwnProperty('token');
             });
         });
-        describe('POST :: /usuario/cadastrar', () => {
+        describe('POST :: /usuarios', () => {
             it('Teste na rota de criação do usuário normal', async () => {
                 const response = await request(app)
-                    .post('/usuario/cadastrar')
+                    .post('/usuarios')
                     .send({
                         usuario: 'usuarionormalteste',
                         senha: '12345678'
@@ -81,14 +81,14 @@ describe('TESTANDO ROTAS ROTAS SEM TOKEN...', () => {
                 expect(response.body.message).to.equal('Usuário ou senha inválido!');
             });
         });
-        describe('POST :: /usuario/cadastrar', () => {
+        describe('POST :: /usuarios', () => {
             it('Teste na rota de criação do usuário normal, usuário já cadastrado', async () => {
                 const query = `INSERT INTO usuarios (usuario, senha)
                 VALUES 
                 ('usuarionormalteste', '25d55ad283aa400af464c76d713c07ad')`;
                 await app.sequelize.query(query, { type: Sequelize.QueryTypes.INSERT });
                 const response = await request(app)
-                    .post('/usuario/cadastrar')
+                    .post('/usuarios')
                     .send({
                         usuario: 'usuarionormalteste',
                         senha: '12345678'
@@ -100,7 +100,7 @@ describe('TESTANDO ROTAS ROTAS SEM TOKEN...', () => {
             });
             it('Teste na rota de criação do usuário normal, usuário vazio', async () => {
                 const response = await request(app)
-                    .post('/usuario/cadastrar')
+                    .post('/usuarios')
                     .send({
                         senha: '12345678'
                     })
@@ -111,7 +111,7 @@ describe('TESTANDO ROTAS ROTAS SEM TOKEN...', () => {
             });
             it('Teste na rota de criação do usuário normal, senha vazia', async () => {
                 const response = await request(app)
-                    .post('/usuario/cadastrar')
+                    .post('/usuarios')
                     .send({
                         usuario: 'usuarionormalteste'
                     })
