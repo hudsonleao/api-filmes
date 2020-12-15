@@ -64,10 +64,10 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 ### Obter token
 
-<code>ROUTE:/api/v1/auth/token <br />
-  METHOD: GET <br />
-  body:{ 
-   usuario: "string"
-   senha: "string"
-  }</code>
+>ROUTE:/api/v1/auth/token <br />
+>  METHOD: GET <br />
+>  body: { <br />
+>   usuario: "string" <br />
+>   senha: "string" <br />
+>  }
 
