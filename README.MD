@@ -66,12 +66,9 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 >  ROUTE: /api/v1/auth/token <br />
 >  METHOD: GET <br />
-<<<<<<< HEAD
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  BODY: { <br />
 >   usuario: "texto" <br />
 >   senha: "texto" <br />
@@ -85,36 +82,27 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 >  ROUTE: /api/v1/filmes <br />
 >  METHOD: GET <br />
-<<<<<<< HEAD
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  QUERY: ?pagina=numero&limite=numero
 
 #### Lista de filmes com filtro por nome, diretor, genero e ator:
 
 >  ROUTE:/api/v1/filmes/filtro <br />
 >  METHOD: GET <br />
-<<<<<<< HEAD
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  QUERY: ?nome=texto&diretor=texto&genero=texto&ator=texto&pagina=numero&limite=numero
 
 #### Cadastrar filme:
 
 >  ROUTE: /api/v1/filmes <br />
 >  METHOD: POST <br />
-<<<<<<< HEAD
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  BODY: { <br />
 >   nome: "texto", <br />
 >   diretores: [array], <br />
@@ -129,16 +117,11 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 #### Cadastrar usuário:
 
-<<<<<<< HEAD
 >  ROUTE: /api/v1/admin/usuarios <br />
 >  METHOD: POST <br />
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->  ROUTE: /api/v1/admin/cadastrar <br />
->  METHOD: POST <br />
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  BODY: { <br />
 >   usuario: "texto", <br />
 >   senha: "texto", <br />
@@ -148,16 +131,11 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 #### Editar usuário:
 
-<<<<<<< HEAD
 >  ROUTE: /admin/usuarios/:usuario <br />
 >  METHOD: PUT <br />
 >  HEADERS: { <br />
 >  authorization: Bearer token <br />
 >  } <br />
-=======
->  ROUTE: /admin/alterar/:usuario <br />
->  METHOD: PUT <br />
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
 >  PARAMS: :usuario = "texto" <br />
 >  BODY: { <br />
 >   usuario: "texto", <br />
@@ -167,7 +145,6 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 **Obs: ativo deve ser igual a 1, caso queira ativar o usuário.
 
-<<<<<<< HEAD
 #### Remover usuário:
 
 >  ROUTE: /admin/usuarios/:usuario <br />
@@ -217,6 +194,3 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 >  authorization: Bearer token <br />
 >  } <br />
 >  PARAMS: :usuario = "texto" <br />
-=======
-
->>>>>>> b25e61ee0df0ec63b1c1c578c894d3e6e4ae3bf0
