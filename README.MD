@@ -85,3 +85,14 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 >  METHOD: GET <br />
 >  QUERY: ?nome=texto&diretor=texto&genero=texto&ator=texto&pagina=numero&limite=numero
 
+### Cadastrar filme:
+
+>  ROUTE: /api/v1/filmes <br />
+>  METHOD: POST <br />
+>  BODY: {
+>   nome: "texto",
+>   diretores: [array],
+>   generos: [array],
+>   atores: [array],
+>   resumo: "texto"
+>  }
