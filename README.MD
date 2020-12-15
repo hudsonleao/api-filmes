@@ -73,19 +73,21 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 
 **Obs: usuário e senha são obrigatórios
 
-### Lista de filmes:
+### Filmes
+
+#### Lista de filmes:
 
 >  ROUTE: /api/v1/filmes <br />
 >  METHOD: GET <br />
 >  QUERY: ?pagina=numero&limite=numero
 
-### Lista de filmes com filtro por nome, diretor, genero e ator:
+#### Lista de filmes com filtro por nome, diretor, genero e ator:
 
 >  ROUTE:/api/v1/filmes/filtro <br />
 >  METHOD: GET <br />
 >  QUERY: ?nome=texto&diretor=texto&genero=texto&ator=texto&pagina=numero&limite=numero
 
-### Cadastrar filme:
+#### Cadastrar filme:
 
 >  ROUTE: /api/v1/filmes <br />
 >  METHOD: POST <br />
@@ -96,3 +98,19 @@ Os testes foram desenvolvidos com o mocha, chai e foi utilizada a biblioteca sup
 >   atores: [array], <br />
 >   resumo: "texto" <br />
 >  }
+
+**Obs: nome, diretores, generos, atores e resumo são obrigatórios.
+
+### Admin
+
+#### Cadastrar usuário:
+
+>  ROUTE: /api/v1/admin/cadastrar <br />
+>  METHOD: POST <br />
+>  BODY: { <br />
+>   usuario: "texto", <br />
+>   senha: "texto", <br />
+>  }
+
+**Obs: usuário e senha são obrigatórios
+
